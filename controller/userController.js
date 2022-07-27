@@ -35,7 +35,7 @@ const registration = async function (req, res) {
             return res.status(400).send({ status: false, massage: "please enter correct email like:- abc@gmail.com" })
         }
         const user = await userModel.findOne({ email: email })
-        if (!user) {
+        if (user) {
             return res.status(400).send({ status: false, message: 'email already in use' })
         }
 
@@ -208,9 +208,6 @@ const resetPassword = async function (req, res) {
 
         const decoded = jwt.verify(token, 'outShadeEmail')
          let user = await userModel.findOne({_id:jwt.decode.UserId})
-         if(user.email != decoded.email){
-            return res.status(403).send({status:false,Message:"user is not valid"})
-         }
 
         if(decoded){
             const hash = bcrypt.hashSync(newPassword, 6);

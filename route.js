@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const userController = require('./controller/userController')
+const eventController = require('./controller/eventController')
 const auth = require('./middleware/auth')
 
 
@@ -20,6 +21,14 @@ router.post('/forgot' , userController.forgotPassword)
 
 
 router.post('/resetPassword',userController.resetPassword)
+
+// event apis
+
+router.post('/createEvent/:userId' , auth.authentication, eventController.createEvent )
+
+
+router.post('/invite/:userId/:eventId',auth.authentication, eventController.inviteUser)
+
 
 
 

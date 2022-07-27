@@ -1,29 +1,32 @@
 const mongoose = require('mongoose')
-const userModel = new mongoose.Schema({
+const ObjectId = mongoose.Schema.Types.ObjectId
+
+
+const eventModel = new mongoose.Schema({
     title:{
         type: String,
-        enum:['Mr','Mrs','Miss'],
         required: true
     },
-    fullName: {
+    description: {
         type: String,
         required: true,
         trim:true
     },
-    email: {
+    eventDate: {
         type: String,
-        required: true,
-        unique: true,
-        trim:true
     },
-    password: {
-        type: String,
-        required: true,
+    createdBy: {
+        type:ObjectId,
+        ref:"userCollection",
     },
-    forgotToken:{
-        type: String,
-        default:null
-    }
+    invitees:[{
+        invitee: {
+            type:String
+        },
+        invitedAt:{
+            type:String
+        }
+    }]
 }, { timestamps: true })
 
-module.exports = mongoose.model('userCollection', userModel)
+module.exports = mongoose.model('eventCollection', eventModel)

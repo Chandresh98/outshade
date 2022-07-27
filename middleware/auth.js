@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const authentication = async function (req, res, next) {
     try {
-        const token = req.cookies.x-api-key;
+        const token = req.cookies["x-api-key"];
         if (token) {
             const decoded = jwt.verify(token, 'outShade')
             if (decoded) {
