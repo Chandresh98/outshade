@@ -187,6 +187,8 @@ FORMATE OF OUTPUT:-
 
 url:-localhost:5000/invite/:userId/:eventId
 
+localhost:5000/invite/62e041747432980b4111b853/62e13535f777d91704c59f14
+
 invite is send to register user only and 1 invite at a time if we want to send multiple user then loop have to create you can call this api multiple time to invite users with a email-id of user and fromate from postman 
 
 userId in path params
@@ -216,7 +218,130 @@ FORMATE OF OUTPUT:-
 
 
 
+/*Event Filter Sorting Paganation search*/
 
+url:-localhost:5000/list
+
+date, title and discription in quary params pagination of 3 and sorted
+
+
+FORMATE OF POSTMAN OF CREATE EVENT:-
+
+quart params:-
+title :- school
+dcription:- about school
+date:- mm/dd/yyy
+
+
+FORMATE OF OUTPUT:-
+
+{
+    "status": true,
+    "message": "successful",
+    "Data": [
+        {
+            "_id": "62e13535f777d91704c59f14",
+            "title": "School",
+            "description": "About School Reopeing",
+            "eventDate": "Wed Jul 27 2022 18:23:09 GMT+0530",
+            "createdBy": "62e041747432980b4111b853",
+            "invitees": [
+                {
+                    "invitee": "62e128ddc7a9bd8f24e954d4",
+                    "invitedAt": "Wed Jul 27 2022 18:23:47 GMT+0530 (India Standard Time)",
+                    "_id": "62e1355bf777d91704c59f19"
+                }
+            ],
+            "createdAt": "2022-07-27T12:53:09.857Z",
+            "updatedAt": "2022-07-27T12:53:47.894Z",
+            "__v": 0
+        }
+    ]
+}
+
+
+
+
+/*update event */
+
+url:-localhost:5000/update/:userId/:eventId
+
+localhost:5000/update/62e041747432980b4111b853/62e13535f777d91704c59f14
+
+userId in path params
+eventId in path params
+
+
+FORMATE OF POSTMAN OF CREATE EVENT:-
+
+{
+    "title":"School and tution",
+    "description":"About School Reopeing"
+}
+
+FORMATE OF OUTPUT:-
+
+{
+    "status": true,
+    "message": "update successful",
+    "Data": {
+        "_id": "62e13535f777d91704c59f14",
+        "title": "School and tution",
+        "description": "About School Reopeing",
+        "eventDate": "Wed Jul 27 2022 18:23:09 GMT+0530",
+        "createdBy": "62e041747432980b4111b853",
+        "invitees": [
+            {
+                "invitee": "62e128ddc7a9bd8f24e954d4",
+                "invitedAt": "Wed Jul 27 2022 18:23:47 GMT+0530 (India Standard Time)",
+                "_id": "62e1355bf777d91704c59f19"
+            }
+        ],
+        "createdAt": "2022-07-27T12:53:09.857Z",
+        "updatedAt": "2022-07-27T13:56:35.105Z",
+        "__v": 0
+    }
+}
+
+
+
+/*details of event by path params*/
+
+
+url:-localhost:5000/event/:eventId
+
+localhost:5000/event/62e13535f777d91704c59f14
+
+eventId in path params
+
+
+
+FORMATE OF OUTPUT:-
+
+{
+    "status": true,
+    "message": "successful",
+    "data": {
+        "_id": "62e13535f777d91704c59f14",
+        "title": "School and tution",
+        "description": "About School Reopeing",
+        "eventDate": "Wed Jul 27 2022 18:23:09 GMT+0530",
+        "createdBy": "62e041747432980b4111b853",
+        "invitees": [
+            {
+                "invitee": "62e128ddc7a9bd8f24e954d4",
+                "invitedAt": "Wed Jul 27 2022 18:23:47 GMT+0530 (India Standard Time)",
+                "_id": "62e1355bf777d91704c59f19"
+            }
+        ],
+        "createdAt": "2022-07-27T12:53:09.857Z",
+        "updatedAt": "2022-07-27T13:56:59.900Z",
+        "__v": 0
+    }
+}
+
+
+postman file is attached with it name:- outshade.postman
 
 
 

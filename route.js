@@ -30,6 +30,12 @@ router.post('/createEvent/:userId' , auth.authentication, eventController.create
 router.post('/invite/:userId/:eventId',auth.authentication, eventController.inviteUser)
 
 
+router.get('/list', eventController.listEventbyFilter )
+
+router.post('/update/:userId/:eventId', auth.authentication, eventController.upadateEvent)
+
+router.get('/event/:eventId', auth.authentication, eventController.getEvent)
+
 
 
 
